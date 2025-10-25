@@ -46,8 +46,8 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">Contact</h2>
             <p className="text-[--muted]">
               Questions about these terms? Contact us at{' '}
-              <a href="mailto:mesa@mesamariephotography.com" className="text-mm-slate underline">
-                mesa@mesamariephotography.com
+              <a href="mailto:wentlingmm@gmail.com" className="text-mm-slate underline">
+                wentlingmm@gmail.com
               </a>
             </p>
           </div>

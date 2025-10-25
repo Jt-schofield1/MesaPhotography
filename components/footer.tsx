@@ -62,12 +62,12 @@ export default function Footer() {
                 </svg>
                 @mesamariephotography
               </a>
-              <a
-                href="mailto:mesa@mesamariephotography.com"
-                className="block text-white/80 hover:text-mm-peach transition-colors"
-              >
-                mesa@mesamariephotography.com
-              </a>
+                      <a
+                        href="mailto:wentlingmm@gmail.com"
+                        className="block text-white/80 hover:text-mm-peach transition-colors"
+                      >
+                        wentlingmm@gmail.com
+                      </a>
               <p className="text-white/70 text-sm italic pt-2">
                 Lake Erie • Pymatuning
                 <br />& Everywhere In Between

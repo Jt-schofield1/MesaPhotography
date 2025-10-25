@@ -74,10 +74,10 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-xl font-bold text-[--fg]">Email Me</h3>
                   <a
-                    href="mailto:mesa@mesamariephotography.com"
+                    href="mailto:wentlingmm@gmail.com"
                     className="text-mm-slate hover:text-mm-peach transition-colors text-lg block"
                   >
-                    mesa@mesamariephotography.com
+                    wentlingmm@gmail.com
                   </a>
                 </motion.div>
 

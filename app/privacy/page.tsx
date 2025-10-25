@@ -40,8 +40,8 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">Contact</h2>
             <p className="text-[--muted]">
               If you have any questions about this privacy policy, please contact us at{' '}
-              <a href="mailto:mesa@mesamariephotography.com" className="text-mm-slate underline">
-                mesa@mesamariephotography.com
+              <a href="mailto:wentlingmm@gmail.com" className="text-mm-slate underline">
+                wentlingmm@gmail.com
               </a>
             </p>
           </div>

@@ -164,10 +164,10 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
           <p role="alert" className="text-red-700 font-medium">
             Something went wrong. Please email me directly at{' '}
             <a
-              href="mailto:mesa@mesamariephotography.com"
+              href="mailto:wentlingmm@gmail.com"
               className="underline hover:text-mm-slate"
             >
-              mesa@mesamariephotography.com
+              wentlingmm@gmail.com
             </a>
           </p>
         )}
