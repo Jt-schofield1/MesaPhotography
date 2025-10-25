@@ -1,0 +1,41 @@
+:root {
+  /* Mesa Marie Brand Colors */
+  --mm-sky: #dff3ff;
+  --mm-slate: #7993ac;
+  --mm-peach: #ffbf7d;
+  --mm-cream: #fff0c8;
+  --mm-warm: #d7ccc3;
+
+  /* Base Theme */
+  --bg: #ffffff;
+  --fg: #0c1116;
+  --muted: #4b5563;
+  
+  /* Design Tokens */
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-base: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c1116;
+    --fg: #e5e7eb;
+    --muted: #9ca3af;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

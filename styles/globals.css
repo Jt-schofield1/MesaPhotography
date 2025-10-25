@@ -1,0 +1,169 @@
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-[--fg] font-crimson antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+    /* Prevent text size adjustment on mobile */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-crimson font-normal;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-semibold;
+    color: var(--fg);
+  }
+
+  p {
+    @apply text-base md:text-lg;
+    color: #374151; /* Darker grey for better readability */
+    /* Better line breaks on mobile */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-2 outline-offset-2 outline-mm-slate;
+  }
+
+  /* Improve tap targets on mobile */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: rgba(255, 191, 125, 0.2);
+  }
+
+  /* Icon decorations */
+  .icon-fish::before {
+    content: '𓆟';
+    margin-right: 0.5rem;
+    font-size: 1.5em;
+    color: var(--mm-slate);
+  }
+
+  .icon-bird::before {
+    content: '𓅰';
+    margin-right: 0.5rem;
+    font-size: 1.5em;
+    color: var(--mm-peach);
+  }
+
+  .icon-shell::before {
+    content: '𓇼';
+    margin-right: 0.5rem;
+    font-size: 1.5em;
+    color: var(--mm-sky);
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .input {
+    @apply w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-base transition-colors duration-300 focus:border-mm-peach focus:outline-none focus:ring-2 focus:ring-mm-peach/30;
+    /* Better mobile input handling */
+    min-height: 44px; /* iOS minimum tap target */
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    background: white;
+    color: var(--fg);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-4 font-bold text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 uppercase tracking-wide;
+    /* Ensure minimum tap target size */
+    min-height: 56px;
+    min-width: 44px;
+    box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-mm-peach to-[#FFD4A3] text-[--fg] hover:shadow-2xl hover:-translate-y-1 hover:scale-105 focus:ring-mm-peach active:scale-100;
+    font-weight: 700;
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-mm-slate bg-white text-mm-slate hover:bg-mm-slate hover:text-white hover:shadow-2xl hover:-translate-y-1 focus:ring-mm-slate active:scale-100;
+    font-weight: 700;
+  }
+
+  .section {
+    @apply py-12 sm:py-16 md:py-24 lg:py-32;
+  }
+
+  .section-sm {
+    @apply py-8 sm:py-12 md:py-16;
+  }
+
+  /* Icon dividers */
+  .icon-divider {
+    @apply flex items-center justify-center gap-6 text-4xl my-8;
+  }
+
+  .icon-divider span {
+    color: var(--mm-slate);
+    opacity: 0.6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn var(--transition-base) forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Skip to main content link */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-mm-peach focus:px-4 focus:py-2 focus:text-[--fg];
+}
+

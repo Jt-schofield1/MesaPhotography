@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mesa-marie.vercel.app
+
+# Sitemaps
+Sitemap: https://mesa-marie.vercel.app/sitemap.xml

@@ -1,0 +1,74 @@
+{
+  "seniors": [
+    {
+      "name": "Basic Senior Session",
+      "price": 100,
+      "duration": "60 minutes",
+      "locations": 1,
+      "outfits": "Up to 1 outfit change",
+      "images": "All edited photos",
+      "delivery": "Online gallery for easy download & sharing",
+      "customizable": true
+    },
+    {
+      "name": "Medium Senior Session",
+      "price": 175,
+      "duration": "Under 90 minutes",
+      "locations": 2,
+      "outfits": "Up to 2 outfit changes",
+      "images": "55+ edited photos",
+      "delivery": "Online gallery for easy download & sharing",
+      "customizable": true
+    }
+  ],
+  "couples": [
+    {
+      "name": "60 Minute Couples Session",
+      "price": 125,
+      "duration": "60 minutes",
+      "locations": 1,
+      "outfits": "1 outfit",
+      "guidance": "Guidance with planning & wardrobe",
+      "images": "45+ intentionally edited professional high resolution images"
+    },
+    {
+      "name": "90 Minute Couples Session",
+      "price": 175,
+      "duration": "~90 minutes",
+      "locations": 2,
+      "outfits": "2 outfits",
+      "guidance": "Guidance with planning & wardrobe",
+      "images": "100+ intentionally edited professional high resolution images"
+    }
+  ],
+  "families": [
+    {
+      "name": "Family Session",
+      "price": 200,
+      "duration": "60 minutes",
+      "people": "3-6 family members",
+      "guidance": "Guidance with planning & wardrobe",
+      "images": "45+ intentionally edited professional high resolution images",
+      "notes": "Yes, dogs are always welcome!!",
+      "inquire": "Inquire for larger family session pricing"
+    }
+  ],
+  "minis": [
+    {
+      "name": "Mini Family Session",
+      "price": 75,
+      "duration": "30 minutes",
+      "locations": 1,
+      "images": "15 edited photos",
+      "perfect": "Perfect for quick seasonal photos or holiday cards"
+    },
+    {
+      "name": "Mini Session",
+      "price": 45,
+      "duration": "15-20 minutes",
+      "locations": 1,
+      "images": "10 edited photos",
+      "perfect": "Great budget option for quick portraits"
+    }
+  ]
+}
