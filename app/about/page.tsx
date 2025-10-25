@@ -23,10 +23,10 @@ export default function AboutPage() {
               <p className="font-halimum text-4xl md:text-5xl text-mm-slate">
                 Created to create.
               </p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[--fg]">
                 HEY, I'M MESA!
               </h1>
-              <p className="text-xl md:text-2xl text-[--muted] italic max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-gray-700 italic max-w-3xl mx-auto font-medium">
                 I partner with authentic, fun-loving people by capturing the warmth, joy, and
                 uniqueness of their most beautiful moments
               </p>
@@ -60,8 +60,8 @@ export default function AboutPage() {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="space-y-6"
               >
-                <h2 className="text-3xl md:text-4xl font-bold">My Story</h2>
-                <div className="space-y-4 text-lg text-[--muted]">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[--fg]">My Story</h2>
+                        <div className="space-y-4 text-lg text-gray-700">
                   <p>
                     Photography isn't just what I do—it's who I am. I was{' '}
                     <span className="font-semibold text-[--fg]">created to create</span>, and I
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">WHAT I'M HERE FOR</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[--fg]">WHAT I'M HERE FOR</h2>
               </motion.div>
 
               <div className="grid md:grid-cols-3 gap-8">
@@ -108,9 +108,13 @@ export default function AboutPage() {
                   transition={{ delay: 0.5, duration: 0.6 }}
                   className="text-center space-y-4 p-8 bg-white rounded-lg shadow-lg"
                 >
-                  <div className="text-5xl mb-4">✨</div>
-                  <h3 className="text-2xl font-bold">Authentic Moments</h3>
-                  <p className="text-[--muted]">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mm-peach to-[#FFD4A3] rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[--fg]">Authentic Moments</h3>
+                  <p className="text-lg text-gray-700">
                     Real laughs, genuine tears, and everything in between. No fake smiles, just you
                     being beautifully you.
                   </p>
@@ -122,9 +126,14 @@ export default function AboutPage() {
                   transition={{ delay: 0.6, duration: 0.6 }}
                   className="text-center space-y-4 p-8 bg-white rounded-lg shadow-lg"
                 >
-                  <div className="text-5xl mb-4">🌅</div>
-                  <h3 className="text-2xl font-bold">Life's Adventures</h3>
-                  <p className="text-[--muted]">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mm-slate to-mm-slate/80 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[--fg]">Life's Adventures</h3>
+                  <p className="text-lg text-gray-700">
                     From sunrise at the lake to golden hour in the fields, let's make your session
                     an adventure to remember.
                   </p>
@@ -136,9 +145,13 @@ export default function AboutPage() {
                   transition={{ delay: 0.7, duration: 0.6 }}
                   className="text-center space-y-4 p-8 bg-white rounded-lg shadow-lg"
                 >
-                  <div className="text-5xl mb-4">❤️</div>
-                  <h3 className="text-2xl font-bold">Love For All</h3>
-                  <p className="text-[--muted]">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mm-peach to-mm-cream rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[--fg]">Love For All</h3>
+                  <p className="text-lg text-gray-700">
                     Every love story is beautiful and deserves to be celebrated. All are welcome
                     here.
                   </p>
@@ -157,15 +170,15 @@ export default function AboutPage() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="max-w-4xl mx-auto text-center space-y-8"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[--fg]">
                 NWPA IS MY PLAYGROUND
               </h2>
               <div className="space-y-4">
-                <p className="text-xl md:text-2xl text-[--muted]">
+                <p className="text-xl md:text-2xl text-gray-700 font-medium">
                   NWPA Photographer — typically found on Lake Erie, Pymatuning Lake, and everywhere
                   in between.
                 </p>
-                <p className="text-lg text-[--muted]">
+                <p className="text-lg text-gray-700">
                   Whether you're dreaming of a beach session, a forest adventure, or something
                   completely unique, I know all the best spots. Let's find the perfect backdrop for
                   your story.
@@ -174,20 +187,20 @@ export default function AboutPage() {
 
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 pt-8">
                 <div className="p-6 bg-mm-sky rounded-lg">
-                  <h3 className="font-semibold text-xl mb-2">Lake Erie</h3>
-                  <p className="text-sm text-[--muted]">Beaches, sunsets, & water views</p>
+                  <h3 className="font-semibold text-xl mb-2 text-[--fg]">Lake Erie</h3>
+                  <p className="text-sm text-gray-700">Beaches, sunsets, & water views</p>
                 </div>
                 <div className="p-6 bg-mm-cream rounded-lg">
-                  <h3 className="font-semibold text-xl mb-2">Pymatuning</h3>
-                  <p className="text-sm text-[--muted]">Lakes, forests, & nature</p>
+                  <h3 className="font-semibold text-xl mb-2 text-[--fg]">Pymatuning</h3>
+                  <p className="text-sm text-gray-700">Lakes, forests, & nature</p>
                 </div>
                 <div className="p-6 bg-mm-peach/20 rounded-lg">
-                  <h3 className="font-semibold text-xl mb-2">Hidden Gems</h3>
-                  <p className="text-sm text-[--muted]">Off-the-beaten-path spots</p>
+                  <h3 className="font-semibold text-xl mb-2 text-[--fg]">Hidden Gems</h3>
+                  <p className="text-sm text-gray-700">Off-the-beaten-path spots</p>
                 </div>
                 <div className="p-6 bg-mm-warm rounded-lg">
-                  <h3 className="font-semibold text-xl mb-2">Anywhere!</h3>
-                  <p className="text-sm text-[--muted]">Your special place</p>
+                  <h3 className="font-semibold text-xl mb-2 text-[--fg]">Anywhere!</h3>
+                  <p className="text-sm text-gray-700">Your special place</p>
                 </div>
               </div>
             </motion.div>

@@ -124,78 +124,100 @@ export default function PricingPage() {
                         <div className="mb-8">
                           <h3 className="text-2xl md:text-3xl font-bold mb-2 text-[--fg] pr-24">{item.name}</h3>
                           {item.customizable && (
-                            <p className="text-base text-mm-slate font-bold italic bg-mm-sky/30 inline-block px-3 py-1 rounded-full">
-                              ✨ Customizable
+                            <p className="text-sm text-mm-slate font-bold bg-mm-sky/30 inline-block px-3 py-1.5 rounded-full uppercase tracking-wide">
+                              Customizable
                             </p>
                           )}
                         </div>
 
                         <ul className="space-y-4 mb-10">
-                          <li className="flex items-start gap-4">
-                            <span className="text-3xl flex-shrink-0">⏱️</span>
-                            <span className="text-lg text-gray-800 font-semibold pt-1">{item.duration}</span>
+                          <li className="flex items-start gap-3">
+                            <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="text-lg text-gray-800 font-semibold">{item.duration}</span>
                           </li>
                           
                           {item.locations && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">📍</span>
-                              <span className="text-lg text-gray-800 pt-1">{item.locations} location{item.locations > 1 ? 's' : ''}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                              <span className="text-lg text-gray-800">{item.locations} location{item.locations > 1 ? 's' : ''}</span>
                             </li>
                           )}
                           
                           {item.outfits && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">👗</span>
-                              <span className="text-lg text-gray-800 pt-1">{item.outfits}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                              </svg>
+                              <span className="text-lg text-gray-800">{item.outfits}</span>
                             </li>
                           )}
                           
                           {item.images && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">📸</span>
-                              <span className="text-lg text-gray-800 font-semibold pt-1">{item.images}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                              <span className="text-lg text-gray-800 font-semibold">{item.images}</span>
                             </li>
                           )}
                           
                           {item.delivery && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">💫</span>
-                              <span className="text-lg text-gray-800 pt-1">{item.delivery}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                              </svg>
+                              <span className="text-lg text-gray-800">{item.delivery}</span>
                             </li>
                           )}
                           
                           {item.guidance && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">✨</span>
-                              <span className="text-lg text-gray-800 pt-1">{item.guidance}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                              </svg>
+                              <span className="text-lg text-gray-800">{item.guidance}</span>
                             </li>
                           )}
                           
                           {item.people && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">👨‍👩‍👧‍👦</span>
-                              <span className="text-lg text-gray-800 pt-1">{item.people}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                              </svg>
+                              <span className="text-lg text-gray-800">{item.people}</span>
                             </li>
                           )}
                           
                           {item.notes && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">💙</span>
-                              <span className="text-lg text-gray-800 font-semibold pt-1">{item.notes}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-peach flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                              </svg>
+                              <span className="text-lg text-gray-800 font-semibold">{item.notes}</span>
                             </li>
                           )}
                           
                           {item.perfect && (
-                            <li className="flex items-start gap-4">
-                              <span className="text-3xl flex-shrink-0">⭐</span>
-                              <span className="text-lg text-gray-800 italic pt-1">{item.perfect}</span>
+                            <li className="flex items-start gap-3">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span className="text-lg text-gray-800 italic">{item.perfect}</span>
                             </li>
                           )}
                           
                           {item.inquire && (
-                            <li className="flex items-start gap-4 bg-mm-slate/10 p-4 rounded-xl -mx-2">
-                              <span className="text-3xl flex-shrink-0">💬</span>
-                              <span className="text-lg text-mm-slate font-bold pt-1">{item.inquire}</span>
+                            <li className="flex items-start gap-3 bg-mm-slate/10 p-4 rounded-xl -mx-2">
+                              <svg className="w-5 h-5 text-mm-slate flex-shrink-0 mt-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                              </svg>
+                              <span className="text-lg text-mm-slate font-bold">{item.inquire}</span>
                             </li>
                           )}
                         </ul>
@@ -235,8 +257,10 @@ export default function PricingPage() {
                   transition={{ delay: 0.3, duration: 0.6 }}
                   className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-mm-peach/20"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-mm-peach to-[#FFD4A3] rounded-2xl flex items-center justify-center shadow-lg">
-                    <span className="text-3xl">✨</span>
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-mm-peach to-[#FFD4A3] rounded-xl flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3 text-[--fg]">Professional Editing</h3>
@@ -252,8 +276,10 @@ export default function PricingPage() {
                   transition={{ delay: 0.4, duration: 0.6 }}
                   className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-mm-slate/20"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-mm-slate to-mm-slate/80 rounded-2xl flex items-center justify-center shadow-lg">
-                    <span className="text-3xl">📸</span>
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-mm-slate to-mm-slate/80 rounded-xl flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3 text-[--fg]">Online Gallery</h3>
@@ -269,8 +295,11 @@ export default function PricingPage() {
                   transition={{ delay: 0.5, duration: 0.6 }}
                   className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-mm-sky/40"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-mm-sky to-mm-slate/30 rounded-2xl flex items-center justify-center shadow-lg">
-                    <span className="text-3xl">🗺️</span>
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-mm-sky to-mm-slate/30 rounded-xl flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3 text-[--fg]">Session Planning</h3>
@@ -286,8 +315,10 @@ export default function PricingPage() {
                   transition={{ delay: 0.6, duration: 0.6 }}
                   className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-mm-peach/20"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-mm-peach to-mm-cream rounded-2xl flex items-center justify-center shadow-lg">
-                    <span className="text-3xl">⚡</span>
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-mm-peach to-mm-cream rounded-xl flex items-center justify-center shadow-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3 text-[--fg]">Fast Delivery</h3>
