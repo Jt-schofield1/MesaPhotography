@@ -89,6 +89,13 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+        
+        {/* Developer Credit */}
+        <div className="pt-4 text-center">
+          <p className="text-white/50 text-xs">
+            Made by James Schofield
+          </p>
+        </div>
       </div>
     </footer>
   );
