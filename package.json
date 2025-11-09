@@ -19,12 +19,15 @@
   "author": "Mesa Marie",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.80.0",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "autoprefixer": "^10.4.21",
+    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "next": "^16.0.0",
@@ -33,10 +36,12 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "sharp": "^0.34.4",
+    "swr": "^2.3.6",
     "tailwindcss": "^3.4.18",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "eslint": "^9.38.0",
     "eslint-config-next": "^16.0.0",
     "prettier": "^3.6.2",

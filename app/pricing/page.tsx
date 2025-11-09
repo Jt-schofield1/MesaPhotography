@@ -68,13 +68,13 @@ export default function PricingPage() {
               className="text-center max-w-4xl mx-auto space-y-6"
             >
               <div className="text-6xl mb-4">𓆟 𓅰 𓇼</div>
-              <p className="font-halimum text-4xl md:text-5xl text-mm-slate">
+              <p className="font-serif text-3xl md:text-4xl text-[--fg] font-light italic">
                 transparent & affordable
               </p>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[--fg]">
                 PRICING
               </h1>
-              <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto font-medium">
+              <p className="text-lg md:text-xl text-[--fg] max-w-2xl mx-auto">
                 Beautiful photography that won't break the bank. All sessions include professional
                 editing, online gallery, and my signature warm, airy style.
               </p>

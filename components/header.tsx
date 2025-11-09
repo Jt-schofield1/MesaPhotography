@@ -23,6 +23,7 @@ export default function Header() {
     { href: '/about', label: 'About' },
     { href: '/pricing', label: 'Pricing' },
     { href: '/contact', label: 'Contact' },
+    { href: '/galleries', label: 'Client Login' },
   ];
 
   return (
@@ -43,7 +44,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-halimum text-xl sm:text-2xl md:text-3xl text-[--fg] hover:text-mm-slate transition-colors min-h-[44px] flex items-center"
+            className="text-xl sm:text-2xl md:text-2xl font-serif tracking-wide text-[--fg] hover:text-mm-slate transition-colors min-h-[44px] flex items-center uppercase"
           >
             Mesa Marie Photography
           </Link>
@@ -54,7 +55,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-[--fg] hover:text-mm-slate transition-colors relative group"
+                className="text-base font-medium text-[--fg] hover:text-mm-slate transition-colors relative group min-h-[44px] flex items-center"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mm-peach transition-all duration-300 group-hover:w-full" />
@@ -88,20 +89,20 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-gray-200 space-y-3 animate-fade-in">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block py-2 text-base font-medium text-[--fg] hover:text-mm-slate transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        )}
+            {isMobileMenuOpen && (
+              <div className="md:hidden mt-4 pt-4 border-t border-gray-200 space-y-3 animate-fade-in">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block py-3 text-lg font-medium text-[--fg] hover:text-mm-slate transition-colors min-h-[48px] flex items-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
       </nav>
     </header>
   );

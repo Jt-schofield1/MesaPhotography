@@ -70,6 +70,7 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
             className="input"
             placeholder="Your full name"
             disabled={status === 'submitting'}
+            autoComplete="name"
           />
         </label>
 
@@ -84,6 +85,8 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
             className="input"
             placeholder="you@example.com"
             disabled={status === 'submitting'}
+            autoComplete="email"
+            inputMode="email"
           />
         </label>
 
@@ -95,6 +98,8 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
             className="input"
             placeholder="(optional)"
             disabled={status === 'submitting'}
+            autoComplete="tel"
+            inputMode="tel"
           />
         </label>
 
@@ -146,6 +151,7 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
           className="input resize-y"
           placeholder="Tell me about your shoot… What's your vision? Any special requests?"
           disabled={status === 'submitting'}
+          style={{ minHeight: '120px' }}
         />
       </label>
 

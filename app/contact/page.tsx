@@ -11,20 +11,20 @@ export default function ContactPage() {
       <Header />
       <main id="main-content" className="pt-24">
         {/* Hero */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-mm-cream to-white">
+        <section className="py-20 md:py-32 bg-mm-cream">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center max-w-4xl mx-auto space-y-6"
             >
-              <p className="font-halimum text-4xl md:text-5xl text-mm-slate">
+              <p className="text-3xl md:text-4xl text-[--fg] font-light italic">
                 let's create together
               </p>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">
                 GET IN TOUCH
               </h1>
-              <p className="text-xl md:text-2xl text-[--muted] max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-[--fg] max-w-2xl mx-auto">
                 Ready to book your session? I can't wait to hear from you and learn about your
                 vision!
               </p>
@@ -44,7 +44,7 @@ export default function ContactPage() {
               >
                 <div className="mb-8">
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">Send Me a Message</h2>
-                  <p className="text-lg text-[--muted]">
+                  <p className="text-lg text-[--fg]">
                     Fill out the form below and I'll get back to you within 24-48 hours. Let's make
                     something beautiful!
                   </p>

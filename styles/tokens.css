@@ -8,8 +8,8 @@
 
   /* Base Theme */
   --bg: #ffffff;
-  --fg: #0c1116;
-  --muted: #4b5563;
+  --fg: #1e3a5f !important; /* Dark Navy Blue - forced */
+  --muted: #1e3a5f !important; /* Same as main text - forced */
   
   /* Design Tokens */
   --radius: 16px;

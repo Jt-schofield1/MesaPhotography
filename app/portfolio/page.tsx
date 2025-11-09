@@ -23,7 +23,7 @@ export default function PortfolioPage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center max-w-4xl mx-auto space-y-6"
             >
-              <p className="font-halimum text-3xl md:text-4xl text-mm-slate">
+              <p className="font-serif text-2xl md:text-3xl text-[--fg] font-light italic">
                 joyful, intentional, adventurous
               </p>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">

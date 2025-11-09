@@ -27,23 +27,23 @@
   h1 {
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
     letter-spacing: -0.02em;
-    color: var(--fg);
+    color: #1e3a5f !important;
   }
 
   h2 {
     @apply text-3xl sm:text-4xl md:text-5xl font-bold;
     letter-spacing: -0.01em;
-    color: var(--fg);
+    color: #1e3a5f !important;
   }
 
   h3 {
     @apply text-2xl sm:text-3xl md:text-4xl font-semibold;
-    color: var(--fg);
+    color: #1e3a5f !important;
   }
 
   p {
     @apply text-base md:text-lg;
-    color: #374151; /* Darker grey for better readability */
+    color: #1e3a5f !important; /* Force dark navy for readability */
     /* Better line breaks on mobile */
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -65,6 +65,23 @@
   select,
   textarea {
     -webkit-tap-highlight-color: rgba(255, 191, 125, 0.2);
+    /* Ensure minimum tap target size for iOS */
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Prevent text size adjustment on orientation change */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /* Icon decorations */
@@ -96,30 +113,50 @@
   }
 
   .input {
-    @apply w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-base transition-colors duration-300 focus:border-mm-peach focus:outline-none focus:ring-2 focus:ring-mm-peach/30;
+    @apply w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition-colors duration-300 focus:border-mm-peach focus:outline-none focus:ring-2 focus:ring-mm-peach/30;
     /* Better mobile input handling */
-    min-height: 44px; /* iOS minimum tap target */
-    font-size: 16px; /* Prevents iOS zoom on focus */
+    min-height: 48px; /* iOS minimum tap target - slightly larger */
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
     background: white;
-    color: var(--fg);
+    color: #1e3a5f !important;
+    /* Prevent zoom on iOS */
+    -webkit-appearance: none;
+    appearance: none;
+    /* Better touch handling */
+    touch-action: manipulation;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center rounded-full px-8 py-4 font-bold text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 uppercase tracking-wide;
-    /* Ensure minimum tap target size */
+    @apply inline-flex items-center justify-center rounded-full px-8 py-4 font-bold transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 uppercase tracking-wide;
+    /* Ensure minimum tap target size for iOS */
     min-height: 56px;
-    min-width: 44px;
+    min-width: 120px;
+    font-size: 16px; /* Prevent iOS zoom on focus */
     box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+    /* Better touch handling */
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  @media (min-width: 768px) {
+    .btn {
+      font-size: 18px;
+    }
   }
 
   .btn-primary {
-    @apply btn bg-gradient-to-r from-mm-peach to-[#FFD4A3] text-[--fg] hover:shadow-2xl hover:-translate-y-1 hover:scale-105 focus:ring-mm-peach active:scale-100;
+    @apply btn bg-mm-peach hover:bg-[#ffa853] hover:shadow-lg focus:ring-mm-peach;
     font-weight: 700;
+    border: none;
+    color: #1e3a5f !important; /* Force dark navy text */
   }
 
   .btn-secondary {
-    @apply btn border-2 border-mm-slate bg-white text-mm-slate hover:bg-mm-slate hover:text-white hover:shadow-2xl hover:-translate-y-1 focus:ring-mm-slate active:scale-100;
+    @apply btn bg-mm-sky hover:bg-[#c8e9ff] hover:shadow-lg focus:ring-mm-sky;
     font-weight: 700;
+    border: none;
+    color: #1e3a5f !important; /* Force dark navy text */
   }
 
   .section {
