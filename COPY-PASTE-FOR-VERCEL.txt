@@ -1,0 +1,26 @@
+COPY THIS ENTIRE BLOCK AND PASTE INTO VERCEL
+================================================
+
+SUPABASE_URL=https://fmdjiikhfeybajhrvxbo.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtZGppaWtoZmV5YmFqaHJ2eGJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3MDcxMDEsImV4cCI6MjA3ODI4MzEwMX0.2b8RXqcoI4O5egnLle8Z9Fvnz_oGpv2dfgmV41XX7H4
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtZGppaWtoZmV5YmFqaHJ2eGJvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjcwNzEwMSwiZXhwIjoyMDc4MjgzMTAxfQ.zF2EDaeWySCIinzunZ1SDSg3Mr3DYtgsDKhngHtIr-8
+CLOUDINARY_CLOUD_NAME=dl13qqgnz
+CLOUDINARY_API_KEY=196122229848329
+CLOUDINARY_API_SECRET=PUT_YOUR_ACTUAL_SECRET_HERE
+ADMIN_PASSWORD=mesa2025secure
+
+
+⚠️ IMPORTANT: Replace "PUT_YOUR_ACTUAL_SECRET_HERE" with your real Cloudinary API Secret!
+
+Get it from: https://cloudinary.com/console → Settings → API Keys → API Secret
+
+
+HOW TO USE IN VERCEL:
+1. Go to Vercel Dashboard → Your Project
+2. Settings → Environment Variables
+3. Click "Add New" → Select "Paste .env"
+4. Paste the block above
+5. Select: Production ✓  Preview ✓  Development ✓
+6. Click Save
+7. Go to Deployments → Click "..." on latest → Redeploy
+
