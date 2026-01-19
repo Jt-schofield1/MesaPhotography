@@ -83,21 +83,97 @@ export default function HomePageClient() {
     <>
       <Header />
       <main id="main-content">
-        {/* Hero Section - Recent Favorites with Scrolling Columns */}
+        {/* Hero Section - Mobile: Featured image with text overlay, Desktop: Scrolling columns */}
         <section className="min-h-screen flex items-center justify-center bg-white pt-20 pb-8 sm:pb-12">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+            
+            {/* Mobile Hero - Featured Image with Text */}
+            <div className="lg:hidden">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center mb-8"
+              >
+                <p 
+                  className="font-halimum text-3xl sm:text-4xl mb-2"
+                  style={{ color: 'var(--accent)' }}
+                >
+                  mesa marie
+                </p>
+                <h1 
+                  className="text-4xl sm:text-5xl font-light tracking-wide mb-4 uppercase"
+                  style={{ color: 'var(--fg)' }}
+                >
+                  Photography
+                </h1>
+                <p 
+                  className="text-base sm:text-lg mb-6 max-w-md mx-auto"
+                  style={{ color: 'var(--fg-muted)' }}
+                >
+                  Capturing authentic, warm, and timeless moments throughout Northwestern Pennsylvania.
+                </p>
+                <Button href="/portfolio" variant="secondary">
+                  View Portfolio
+                </Button>
+              </motion.div>
+
+              {/* Mobile Featured Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[3/4] max-w-sm mx-auto rounded-lg overflow-hidden shadow-xl"
+              >
+                <Image
+                  src="/portfolio/Photos for Website and Portfolio/this is one of my best, use it where everyone will see.png"
+                  alt="Mesa Marie Photography - Featured Work"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 400px"
+                  className="object-cover"
+                  priority
+                />
+              </motion.div>
+
+              {/* Mobile: Horizontal scroll preview */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mt-8 -mx-4 px-4"
+              >
+                <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+                  {[...portfolioImages.slice(1, 5), ...portfolioImages2.slice(0, 3)].map((src, index) => (
+                    <div
+                      key={index}
+                      className="relative w-28 sm:w-32 aspect-[4/5] rounded-lg overflow-hidden shadow-md flex-shrink-0 snap-start"
+                    >
+                      <Image
+                        src={src}
+                        alt={`Portfolio preview ${index + 1}`}
+                        fill
+                        sizes="120px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Desktop Hero - Original scrolling columns layout */}
+            <div className="hidden lg:grid lg:grid-cols-2 gap-20 items-center">
               {/* Left - Two scrolling photo columns */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="flex gap-3 sm:gap-4 justify-center"
+                className="flex gap-4 justify-center"
               >
-                <div className="w-[120px] xs:w-[140px] sm:w-[160px] md:w-[180px]">
+                <div className="w-[180px]">
                   <ScrollingColumn images={portfolioImages} direction="up" speed={30} />
                 </div>
-                <div className="w-[120px] xs:w-[140px] sm:w-[160px] md:w-[180px] mt-16 sm:mt-20">
+                <div className="w-[180px] mt-20">
                   <ScrollingColumn images={portfolioImages2} direction="down" speed={35} />
                 </div>
               </motion.div>
@@ -107,22 +183,22 @@ export default function HomePageClient() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center lg:text-left"
+                className="text-left"
               >
                 <p 
-                  className="font-halimum text-2xl xs:text-3xl md:text-4xl mb-2"
+                  className="font-halimum text-4xl mb-2"
                   style={{ color: 'var(--accent)' }}
                 >
                   a glimpse of my work
                 </p>
                 <h1 
-                  className="text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide mb-4 sm:mb-6 uppercase"
+                  className="text-5xl lg:text-6xl font-light tracking-wide mb-6 uppercase"
                   style={{ color: 'var(--fg)' }}
                 >
                   Some Recent Favorites
                 </h1>
                 <p 
-                  className="text-base sm:text-lg mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0"
+                  className="text-lg mb-8 max-w-lg"
                   style={{ color: 'var(--fg-muted)' }}
                 >
                   Capturing authentic, warm, and timeless moments throughout Northwestern Pennsylvania.
