@@ -4,7 +4,8 @@ import { cn } from '@/lib/utils';
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
@@ -15,13 +16,27 @@ export default function Button({
   children,
   href,
   variant = 'primary',
+  size = 'md',
   className,
   onClick,
   type = 'button',
   disabled = false,
 }: ButtonProps) {
+  const sizeClasses = {
+    sm: 'px-5 py-2 text-xs',
+    md: 'px-8 py-3 text-sm',
+    lg: 'px-10 py-4 text-sm',
+  };
+
+  const variantClasses = {
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    ghost: 'btn-ghost',
+  };
+
   const baseClasses = cn(
-    variant === 'primary' ? 'btn-primary' : 'btn-secondary',
+    variantClasses[variant],
+    sizeClasses[size],
     className
   );
 
@@ -44,4 +59,3 @@ export default function Button({
     </button>
   );
 }
-

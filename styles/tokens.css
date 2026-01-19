@@ -1,34 +1,57 @@
 :root {
-  /* Mesa Marie Brand Colors */
-  --mm-sky: #dff3ff;
-  --mm-slate: #7993ac;
-  --mm-peach: #ffbf7d;
-  --mm-cream: #fff0c8;
-  --mm-warm: #d7ccc3;
-
-  /* Base Theme */
+  /* Mesa Marie Brand Colors - Clean & Elegant Palette */
+  --mm-white: #ffffff;
+  --mm-offwhite: #fafafa;
+  --mm-cream: #fcf9f6;
+  --mm-dusty-blue: #799DAC;
+  --mm-gold: #FFBF7D;
+  --mm-navy: #1e3a5f;
+  --mm-charcoal: #2d3748;
+  --mm-light-gray: #f7f7f7;
+  
+  /* For backward compatibility */
+  --mm-sky: #e8f4f8;
+  --mm-slate: #799DAC;
+  --mm-peach: #f5d6c6;
+  --mm-warm: #f0ebe6;
+  
+  /* Primary Theme - Clean & Minimal */
   --bg: #ffffff;
-  --fg: #1e3a5f !important; /* Dark Navy Blue - forced */
-  --muted: #1e3a5f !important; /* Same as main text - forced */
+  --bg-alt: #fafafa;
+  --fg: #000000; /* Pure black for elegance */
+  --fg-muted: #555555; /* Softer gray for body text */
+  --accent: #799DAC; /* Dusty blue accent */
+  --accent-gold: #FFBF7D;
   
   /* Design Tokens */
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
   
-  /* Transitions */
-  --transition-base: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  --transition-fast: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Shadows - Very subtle for elegant feel */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.07);
+  
+  /* Transitions - Smooth & Elegant */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-elegant: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0c1116;
-    --fg: #e5e7eb;
-    --muted: #9ca3af;
-  }
-}
-
+/* Prefers reduced motion - accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -38,4 +61,3 @@
     transition-duration: 0.01ms !important;
   }
 }
-

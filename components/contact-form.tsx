@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { motion } from 'framer-motion';
 import Button from './button';
 
 const endpoint = 'https://formspree.io/f/mnngbrpv';
@@ -48,26 +49,42 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
     }
   };
 
+  const inputClasses = `
+    w-full px-4 py-3 
+    border border-gray-200 
+    rounded-sm 
+    bg-white
+    text-[var(--fg)]
+    placeholder:text-gray-400
+    focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]
+    transition-all duration-300
+    disabled:opacity-50 disabled:cursor-not-allowed
+  `.trim();
+
   return (
-    <form
+    <motion.form
       onSubmit={handleSubmit}
       action={endpoint}
       method="POST"
       acceptCharset="UTF-8"
       className="space-y-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       {/* Honeypot field */}
       <input type="text" name="_gotcha" className="hidden" aria-hidden="true" tabIndex={-1} />
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      {/* Name & Email Row */}
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col">
-          <span className="mb-2 text-sm font-medium text-[--fg]">
-            Name <span className="text-red-500">*</span>
+          <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>
+            Name <span style={{ color: 'var(--accent)' }}>*</span>
           </span>
           <input
             required
             name="name"
-            className="input"
+            className={inputClasses}
             placeholder="Your full name"
             disabled={status === 'submitting'}
             autoComplete="name"
@@ -75,27 +92,30 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
         </label>
 
         <label className="flex flex-col">
-          <span className="mb-2 text-sm font-medium text-[--fg]">
-            Email <span className="text-red-500">*</span>
+          <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>
+            Email <span style={{ color: 'var(--accent)' }}>*</span>
           </span>
           <input
             required
             type="email"
             name="email"
-            className="input"
+            className={inputClasses}
             placeholder="you@example.com"
             disabled={status === 'submitting'}
             autoComplete="email"
             inputMode="email"
           />
         </label>
+      </div>
 
+      {/* Phone & Session Type Row */}
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col">
-          <span className="mb-2 text-sm font-medium text-[--fg]">Phone</span>
+          <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>Phone</span>
           <input
             name="phone"
             type="tel"
-            className="input"
+            className={inputClasses}
             placeholder="(optional)"
             disabled={status === 'submitting'}
             autoComplete="tel"
@@ -104,14 +124,14 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
         </label>
 
         <label className="flex flex-col">
-          <span className="mb-2 text-sm font-medium text-[--fg]">
-            Session Type <span className="text-red-500">*</span>
+          <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>
+            Session Type <span style={{ color: 'var(--accent)' }}>*</span>
           </span>
           <select
             required
             name="sessionType"
             defaultValue={prefillSession || ''}
-            className="input"
+            className={inputClasses}
             disabled={status === 'submitting'}
           >
             <option value="">Select…</option>
@@ -121,69 +141,85 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
             <option>Minis</option>
           </select>
         </label>
+      </div>
 
+      {/* Date & Location Row */}
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col">
-          <span className="mb-2 text-sm font-medium text-[--fg]">Preferred Date</span>
+          <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>Preferred Date</span>
           <input
             type="date"
             name="date"
-            className="input"
+            className={inputClasses}
             disabled={status === 'submitting'}
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="mb-2 text-sm font-medium text-[--fg]">Location Preference</span>
+          <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>Location Preference</span>
           <input
             name="location"
-            className="input"
+            className={inputClasses}
             placeholder="Lake Erie / Pymatuning / other"
             disabled={status === 'submitting'}
           />
         </label>
       </div>
 
+      {/* Message */}
       <label className="flex flex-col">
-        <span className="mb-2 text-sm font-medium text-[--fg]">Message</span>
+        <span className="mb-2 text-sm font-medium" style={{ color: 'var(--fg)' }}>Message</span>
         <textarea
           name="message"
           rows={5}
-          className="input resize-y"
+          className={`${inputClasses} resize-y`}
           placeholder="Tell me about your shoot… What's your vision? Any special requests?"
           disabled={status === 'submitting'}
-          style={{ minHeight: '120px' }}
+          style={{ minHeight: '140px' }}
         />
       </label>
 
-      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+      {/* Submit */}
+      <div className="flex flex-col gap-4">
         <Button type="submit" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Sending…' : 'Send Inquiry'}
+          {status === 'submitting' ? 'Sending…' : 'Send Message'}
         </Button>
 
         {status === 'success' && (
-          <p role="status" className="text-green-700 font-medium">
-            ✓ Thanks! I'll get back to you soon.
-          </p>
+          <motion.p 
+            role="status" 
+            className="text-sm font-medium"
+            style={{ color: 'var(--accent)' }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            ✓ Thanks! I'll get back to you within 24-48 hours.
+          </motion.p>
         )}
 
         {status === 'error' && (
-          <p role="alert" className="text-red-700 font-medium">
+          <motion.p 
+            role="alert" 
+            className="text-sm font-medium text-red-600"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             Something went wrong. Please email me directly at{' '}
             <a
               href="mailto:wentlingmm@gmail.com"
-              className="underline hover:text-mm-slate"
+              className="underline"
+              style={{ color: 'var(--accent)' }}
             >
               wentlingmm@gmail.com
             </a>
-          </p>
+          </motion.p>
         )}
       </div>
 
-      <p className="text-sm text-[--muted]">
+      <p className="text-xs" style={{ color: 'var(--fg-muted)' }}>
         By submitting this form, you consent to being contacted via email or phone regarding your
         photography inquiry.
       </p>
-    </form>
+    </motion.form>
   );
 }
-

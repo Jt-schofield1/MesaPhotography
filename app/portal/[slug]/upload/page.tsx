@@ -2,6 +2,7 @@
 
 import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 type UploadStatus = {
@@ -26,7 +27,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
 
   async function fetchGallery() {
     try {
-      // Get auth token from sessionStorage
       const authToken = sessionStorage.getItem('admin_auth');
       if (!authToken) {
         alert('Please log in to the portal first');
@@ -51,7 +51,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
       
       const galleries = await response.json();
       
-      // Check if galleries is an array
       if (!Array.isArray(galleries)) {
         console.error('Unexpected response format:', galleries);
         throw new Error('Invalid response from API');
@@ -117,7 +116,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
     
     setUploads(prev => [...prev, ...newUploads]);
     
-    // Start uploading each file
     newUploads.forEach((upload, index) => {
       uploadFile(upload.file, uploads.length + index);
     });
@@ -125,14 +123,12 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
 
   async function uploadFile(file: File, index: number) {
     try {
-      // Update status to uploading
       setUploads(prev => {
         const updated = [...prev];
         updated[index] = { ...updated[index], status: 'uploading' };
         return updated;
       });
 
-      // Get signature from our API
       const sigResponse = await fetch('/api/cloudinary/signature', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -147,7 +143,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
 
       const { signature, timestamp, cloudname, apikey, folder } = await sigResponse.json();
 
-      // Upload to Cloudinary
       const formData = new FormData();
       formData.append('file', file);
       formData.append('signature', signature);
@@ -157,7 +152,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
 
       const xhr = new XMLHttpRequest();
 
-      // Track upload progress
       xhr.upload.addEventListener('progress', (e) => {
         if (e.lengthComputable) {
           const progress = Math.round((e.loaded / e.total) * 100);
@@ -169,7 +163,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
         }
       });
 
-      // Handle completion
       xhr.addEventListener('load', () => {
         if (xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
@@ -188,7 +181,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
         }
       });
 
-      // Handle errors
       xhr.addEventListener('error', () => {
         setUploads(prev => {
           const updated = [...prev];
@@ -201,7 +193,6 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
         });
       });
 
-      // Send request
       xhr.open('POST', `https://api.cloudinary.com/v1_1/${cloudname}/image/upload`);
       xhr.send(formData);
 
@@ -221,8 +212,8 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
 
   if (loading) {
     return (
-      <main className="p-10">
-        <p>Loading gallery...</p>
+      <main className="min-h-screen flex items-center justify-center bg-white">
+        <p style={{ color: 'var(--fg-muted)' }}>Loading gallery...</p>
       </main>
     );
   }
@@ -236,142 +227,165 @@ export default function UploadPage({ params }: { params: Promise<{ slug: string 
   const uploadingCount = uploads.filter(u => u.status === 'uploading').length;
 
   return (
-    <main className="p-4 sm:p-6 md:p-10 max-w-5xl mx-auto">
-      <div className="mb-6 sm:mb-8">
-        <button 
-              onClick={() => router.push('/portal')}
-              className="text-[var(--mm-peach)] hover:underline mb-4 text-sm sm:text-base"
-            >
-              ← Back to Portal
-            </button>
-            <h1 className="text-2xl sm:text-3xl font-bold mb-2">Upload Photos</h1>
-            <p className="text-sm sm:text-base text-[--fg]">
-              Gallery: <span className="font-semibold">{gallery.client_name}</span> ({slug})
-            </p>
-            <p className="text-xs sm:text-sm text-[--fg] truncate">
-              Folder: {gallery.cloudinary_folder}
-            </p>
-      </div>
-
-      {/* Upload stats */}
-      {uploads.length > 0 && (
-        <div className="mb-6 p-3 sm:p-4 bg-gray-50 rounded-lg flex flex-wrap gap-3 sm:gap-6 text-xs sm:text-sm">
-          <div>
-            <span className="font-semibold">Total:</span> {uploads.length}
-          </div>
-          {uploadingCount > 0 && (
-            <div className="text-blue-600">
-              <span className="font-semibold">Uploading:</span> {uploadingCount}
-            </div>
-          )}
-          {successCount > 0 && (
-            <div className="text-green-600">
-              <span className="font-semibold">Success:</span> {successCount}
-            </div>
-          )}
-          {errorCount > 0 && (
-            <div className="text-red-600">
-              <span className="font-semibold">Failed:</span> {errorCount}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Drag & Drop Zone */}
-      <div
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-        className={`
-          border-2 border-dashed rounded-xl p-6 sm:p-12 text-center transition-all touch-manipulation
-          ${isDragging 
-            ? 'border-[var(--mm-peach)] bg-[var(--mm-peach)]/10' 
-            : 'border-gray-300 hover:border-[var(--mm-peach)]'
-          }
-        `}
-      >
-        <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">📸</div>
-            <h2 className="text-lg sm:text-2xl font-semibold mb-2">Drag & Drop Photos Here</h2>
-            <p className="text-sm sm:text-base text-[--fg] mb-4 sm:mb-6">or</p>
-        <label className="btn-primary cursor-pointer inline-block text-sm sm:text-base px-6 py-3">
-          Choose Files
-          <input
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={handleFileSelect}
-            className="hidden"
-          />
-        </label>
-            <p className="text-xs sm:text-sm text-[--fg] mt-3 sm:mt-4">
-              Supports: JPG, PNG, WEBP, GIF
-            </p>
-      </div>
-
-      {/* Upload Progress List */}
-      {uploads.length > 0 && (
-        <div className="mt-6 sm:mt-8 space-y-3">
-          <h3 className="font-semibold text-base sm:text-lg mb-4">Upload Progress</h3>
-          {uploads.map((upload, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="border rounded-lg p-3 sm:p-4 bg-white shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-2 gap-2">
-                <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                  <div className="text-xl sm:text-2xl flex-shrink-0">
-                    {upload.status === 'success' && '✅'}
-                    {upload.status === 'error' && '❌'}
-                    {upload.status === 'uploading' && '⏳'}
-                    {upload.status === 'pending' && '⏸️'}
-                  </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-medium text-xs sm:text-sm truncate">{upload.file.name}</p>
-                        <p className="text-xs text-[--fg]">
-                          {(upload.file.size / 1024 / 1024).toFixed(2)} MB
-                        </p>
-                      </div>
-                </div>
-                <div className="text-xs sm:text-sm font-semibold flex-shrink-0">
-                  {upload.status === 'uploading' && `${upload.progress}%`}
-                  {upload.status === 'success' && 'Done'}
-                  {upload.status === 'error' && 'Failed'}
-                </div>
-              </div>
-              
-              {/* Progress bar */}
-              {upload.status === 'uploading' && (
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className="bg-[var(--mm-peach)] h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${upload.progress}%` }}
-                  />
-                </div>
-              )}
-
-              {/* Error message */}
-              {upload.status === 'error' && upload.error && (
-                <p className="text-xs sm:text-sm text-red-600 mt-2">{upload.error}</p>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      )}
-
-      {/* Done button */}
-      {successCount > 0 && uploadingCount === 0 && (
-        <div className="mt-6 sm:mt-8 text-center">
-          <button
-            onClick={() => router.push('/portal')}
-            className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 touch-manipulation"
+    <main className="min-h-screen p-6 md:p-10 bg-white">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="mb-10">
+          <Link 
+            href="/portal" 
+            className="inline-flex items-center gap-2 text-sm mb-6 transition-colors hover:opacity-70"
+            style={{ color: 'var(--accent)' }}
           >
-            Done - Back to Portal
-          </button>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Portal
+          </Link>
+          <h1 
+            className="text-2xl md:text-3xl font-light tracking-wide uppercase mb-2"
+            style={{ color: 'var(--fg)' }}
+          >
+            Upload Photos
+          </h1>
+          <p style={{ color: 'var(--fg-muted)' }}>
+            Gallery: <span className="font-medium">{gallery.client_name}</span> ({slug})
+          </p>
+          <p className="text-sm truncate" style={{ color: 'var(--fg-muted)' }}>
+            Folder: {gallery.cloudinary_folder}
+          </p>
         </div>
-      )}
+
+        {/* Upload stats */}
+        {uploads.length > 0 && (
+          <div 
+            className="mb-8 p-4 rounded-sm flex flex-wrap gap-6 text-sm"
+            style={{ backgroundColor: 'var(--mm-cream)' }}
+          >
+            <div>
+              <span className="font-medium" style={{ color: 'var(--fg)' }}>Total:</span>{' '}
+              <span style={{ color: 'var(--fg-muted)' }}>{uploads.length}</span>
+            </div>
+            {uploadingCount > 0 && (
+              <div style={{ color: 'var(--accent)' }}>
+                <span className="font-medium">Uploading:</span> {uploadingCount}
+              </div>
+            )}
+            {successCount > 0 && (
+              <div className="text-green-600">
+                <span className="font-medium">Success:</span> {successCount}
+              </div>
+            )}
+            {errorCount > 0 && (
+              <div className="text-red-600">
+                <span className="font-medium">Failed:</span> {errorCount}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Drag & Drop Zone */}
+        <div
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          className={`
+            border-2 border-dashed rounded-sm p-12 text-center transition-all duration-300
+            ${isDragging 
+              ? 'border-[var(--accent)] bg-[var(--accent)]/5' 
+              : 'border-gray-200 hover:border-[var(--accent)]'
+            }
+          `}
+        >
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--mm-cream)' }}>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--accent)' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-light tracking-wide uppercase mb-2" style={{ color: 'var(--fg)' }}>
+            Drag & Drop Photos Here
+          </h2>
+          <p className="mb-6" style={{ color: 'var(--fg-muted)' }}>or</p>
+          <label 
+            className="inline-block px-8 py-3 text-sm uppercase tracking-widest text-white cursor-pointer transition-all duration-500 hover:opacity-90"
+            style={{ backgroundColor: 'var(--accent)' }}
+          >
+            Choose Files
+            <input
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={handleFileSelect}
+              className="hidden"
+            />
+          </label>
+          <p className="text-xs mt-6" style={{ color: 'var(--fg-muted)' }}>
+            Supports: JPG, PNG, WEBP, GIF
+          </p>
+        </div>
+
+        {/* Upload Progress List */}
+        {uploads.length > 0 && (
+          <div className="mt-10 space-y-3">
+            <h3 className="font-medium mb-4" style={{ color: 'var(--fg)' }}>Upload Progress</h3>
+            {uploads.map((upload, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="border border-gray-100 rounded-sm p-4"
+              >
+                <div className="flex items-center justify-between mb-2 gap-2">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    <div className="text-lg flex-shrink-0">
+                      {upload.status === 'success' && <span className="text-green-600">✓</span>}
+                      {upload.status === 'error' && <span className="text-red-600">✗</span>}
+                      {upload.status === 'uploading' && <span style={{ color: 'var(--accent)' }}>↑</span>}
+                      {upload.status === 'pending' && <span style={{ color: 'var(--fg-muted)' }}>○</span>}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium text-sm truncate" style={{ color: 'var(--fg)' }}>{upload.file.name}</p>
+                      <p className="text-xs" style={{ color: 'var(--fg-muted)' }}>
+                        {(upload.file.size / 1024 / 1024).toFixed(2)} MB
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-sm font-medium flex-shrink-0">
+                    {upload.status === 'uploading' && <span style={{ color: 'var(--accent)' }}>{upload.progress}%</span>}
+                    {upload.status === 'success' && <span className="text-green-600">Done</span>}
+                    {upload.status === 'error' && <span className="text-red-600">Failed</span>}
+                  </div>
+                </div>
+                
+                {upload.status === 'uploading' && (
+                  <div className="w-full bg-gray-100 rounded-full h-1.5">
+                    <div
+                      className="h-1.5 rounded-full transition-all duration-300"
+                      style={{ width: `${upload.progress}%`, backgroundColor: 'var(--accent)' }}
+                    />
+                  </div>
+                )}
+
+                {upload.status === 'error' && upload.error && (
+                  <p className="text-xs text-red-600 mt-2">{upload.error}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {/* Done button */}
+        {successCount > 0 && uploadingCount === 0 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => router.push('/portal')}
+              className="px-10 py-4 text-sm uppercase tracking-widest text-white transition-all duration-500 hover:opacity-90"
+              style={{ backgroundColor: 'var(--accent)' }}
+            >
+              Done - Back to Portal
+            </button>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
-

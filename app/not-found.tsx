@@ -9,28 +9,51 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="min-h-[100svh] flex items-center justify-center px-4 pt-24 bg-gradient-to-b from-mm-sky to-white">
+      <main className="min-h-[100svh] flex items-center justify-center px-6 pt-24 bg-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-2xl mx-auto"
         >
-          <div className="text-8xl md:text-9xl font-bold mb-6 text-mm-slate">404</div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            OOPS!
-            <br />
-            LOST IN THE LAKES
+          <p 
+            className="font-halimum text-3xl md:text-4xl mb-4"
+            style={{ color: 'var(--accent)' }}
+          >
+            oops!
+          </p>
+          <div 
+            className="text-8xl md:text-9xl font-light mb-8"
+            style={{ color: 'var(--fg)' }}
+          >
+            404
+          </div>
+          <h1 
+            className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide uppercase mb-6"
+            style={{ color: 'var(--fg)' }}
+          >
+            Page Not Found
           </h1>
-          <p className="text-xl md:text-2xl text-[--muted] mb-8">
+          <p 
+            className="text-lg md:text-xl mb-10"
+            style={{ color: 'var(--fg-muted)' }}
+          >
             Looks like this page wandered off somewhere between Lake Erie and Pymatuning.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/" variant="primary" className="text-lg px-8 py-4">
-              go home
+            <Button href="/" variant="primary">
+              Go Home
             </Button>
-            <Button href="/portfolio" variant="secondary" className="text-lg px-8 py-4">
-              view portfolio
+            <Button href="/portfolio" variant="secondary">
+              View Portfolio
             </Button>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="flex justify-center gap-4 mt-16">
+            <span style={{ color: 'var(--accent)' }}>✶</span>
+            <span style={{ color: 'var(--accent)' }}>✶</span>
+            <span style={{ color: 'var(--accent)' }}>✶</span>
           </div>
         </motion.div>
       </main>
@@ -38,4 +61,3 @@ export default function NotFound() {
     </>
   );
 }
-

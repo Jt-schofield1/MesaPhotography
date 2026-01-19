@@ -42,7 +42,6 @@ export default function NewGalleryPage() {
 
   function handleClientNameChange(name: string) {
     setForm(prev => {
-      // Only auto-generate if fields are empty or match the auto-generated pattern
       const newSlug = prev.slug === '' || prev.slug === generateSlug(prev.client_name) 
         ? generateSlug(name) 
         : prev.slug;
@@ -89,142 +88,177 @@ export default function NewGalleryPage() {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage('✅ Gallery created successfully!');
+        setMessage('success');
         setTimeout(() => {
           router.push('/portal');
         }, 1500);
       } else {
-        setMessage(`❌ Error: ${data.error || 'Failed to create gallery'}`);
+        setMessage(`error:${data.error || 'Failed to create gallery'}`);
       }
     } catch (err) {
-      setMessage('❌ Error creating gallery. Please try again.');
+      setMessage('error:Error creating gallery. Please try again.');
       console.error(err);
     } finally {
       setLoading(false);
     }
   }
 
+  const inputClasses = "w-full px-4 py-3 border border-gray-200 rounded-sm bg-white focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all duration-300";
+
   return (
-    <main className="min-h-screen p-4 md:p-10 bg-mm-cream">
+    <main className="min-h-screen p-6 md:p-10 bg-white">
       <div className="max-w-2xl mx-auto">
-        <div className="mb-8">
-          <Link href="/portal" className="text-mm-slate hover:underline mb-4 inline-block">
-            ← Back to Portal
+        {/* Header */}
+        <div className="mb-10">
+          <Link 
+            href="/portal" 
+            className="inline-flex items-center gap-2 text-sm mb-6 transition-colors hover:opacity-70"
+            style={{ color: 'var(--accent)' }}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Portal
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold text-[--fg] mb-2">Create New Gallery</h1>
-          <p className="text-[--muted]">Set up a new client gallery</p>
+          <h1 
+            className="text-2xl md:text-3xl font-light tracking-wide uppercase mb-2"
+            style={{ color: 'var(--fg)' }}
+          >
+            Create New Gallery
+          </h1>
+          <p style={{ color: 'var(--fg-muted)' }}>Set up a new client gallery</p>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-lg shadow-xl p-6 md:p-8"
+          transition={{ duration: 0.6 }}
+          className="rounded-sm border border-gray-100 p-6 md:p-8"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-[--fg] mb-2">
-                Client Name *
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--fg)' }}>
+                Client Name <span style={{ color: 'var(--accent)' }}>*</span>
               </label>
               <input
                 type="text"
                 value={form.client_name}
                 onChange={(e) => handleClientNameChange(e.target.value)}
                 placeholder="e.g., Smith Wedding"
-                className="input w-full"
+                className={inputClasses}
+                style={{ color: 'var(--fg)' }}
                 required
               />
-              <p className="text-xs text-[--muted] mt-1">
+              <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>
                 The client's name (will auto-generate slug and access code)
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[--fg] mb-2">Slug *</label>
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--fg)' }}>
+                Slug <span style={{ color: 'var(--accent)' }}>*</span>
+              </label>
               <input
                 type="text"
                 value={form.slug}
-                onChange={(e) =>
-                  updateField('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))
-                }
+                onChange={(e) => updateField('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))}
                 placeholder="e.g., smith-wedding"
-                className="input w-full"
+                className={inputClasses}
+                style={{ color: 'var(--fg)' }}
                 required
                 pattern="[a-z0-9-]+"
               />
-              <p className="text-xs text-[--muted] mt-1">
+              <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>
                 URL-friendly identifier (lowercase, hyphens only)
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[--fg] mb-2">
-                Access Code *
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--fg)' }}>
+                Access Code <span style={{ color: 'var(--accent)' }}>*</span>
               </label>
               <input
                 type="text"
                 value={form.access_code}
                 onChange={(e) => updateField('access_code', e.target.value.toUpperCase())}
                 placeholder="e.g., SMITH2025"
-                className="input w-full uppercase"
+                className={`${inputClasses} uppercase tracking-widest`}
+                style={{ color: 'var(--fg)' }}
                 required
                 maxLength={20}
               />
-              <p className="text-xs text-[--muted] mt-1">
+              <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>
                 Unique code clients enter to find their gallery
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[--fg] mb-2">Password *</label>
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--fg)' }}>
+                Password <span style={{ color: 'var(--accent)' }}>*</span>
+              </label>
               <input
                 type="text"
                 value={form.password}
                 onChange={(e) => updateField('password', e.target.value)}
                 placeholder="e.g., smith-2025"
-                className="input w-full"
+                className={inputClasses}
+                style={{ color: 'var(--fg)' }}
                 required
                 minLength={6}
               />
-              <p className="text-xs text-[--muted] mt-1">
+              <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>
                 Password to unlock the gallery (min 6 characters)
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[--fg] mb-2">
-                Cloudinary Folder *
+              <label className="block text-sm font-medium mb-2" style={{ color: 'var(--fg)' }}>
+                Cloudinary Folder <span style={{ color: 'var(--accent)' }}>*</span>
               </label>
               <input
                 type="text"
                 value={form.folder}
                 onChange={(e) => updateField('folder', e.target.value)}
                 placeholder="e.g., Mesa-Marie/clients/smith-wedding"
-                className="input w-full"
+                className={inputClasses}
+                style={{ color: 'var(--fg)' }}
                 required
               />
-              <p className="text-xs text-[--muted] mt-1">
+              <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>
                 Path to images in Cloudinary (upload photos here first!)
               </p>
             </div>
 
-            <div className="flex items-center gap-3 p-4 bg-mm-sky rounded-lg">
+            <div 
+              className="flex items-center gap-3 p-4 rounded-sm"
+              style={{ backgroundColor: 'var(--mm-cream)' }}
+            >
               <input
                 type="checkbox"
                 id="allow_zip"
                 checked={form.allow_zip}
                 onChange={(e) => updateField('allow_zip', e.target.checked)}
-                className="w-5 h-5"
+                className="w-5 h-5 rounded-sm accent-[var(--accent)]"
               />
-              <label htmlFor="allow_zip" className="text-sm font-medium text-[--fg]">
+              <label htmlFor="allow_zip" className="text-sm font-medium" style={{ color: 'var(--fg)' }}>
                 Allow ZIP download (Download All button)
               </label>
             </div>
 
             <div className="flex gap-4 pt-4">
-              <button type="submit" disabled={loading} className="btn-primary flex-1">
+              <button 
+                type="submit" 
+                disabled={loading} 
+                className="flex-1 py-4 text-sm uppercase tracking-widest text-white transition-all duration-500 disabled:opacity-50"
+                style={{ backgroundColor: 'var(--accent)' }}
+              >
                 {loading ? 'Creating...' : 'Create Gallery'}
               </button>
-              <Link href="/portal" className="btn-secondary flex-1 text-center">
+              <Link 
+                href="/portal" 
+                className="flex-1 py-4 text-sm uppercase tracking-widest text-center border transition-all duration-500"
+                style={{ color: 'var(--fg)', borderColor: 'var(--fg)' }}
+              >
                 Cancel
               </Link>
             </div>
@@ -233,20 +267,24 @@ export default function NewGalleryPage() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className={`p-4 rounded-lg text-center ${
-                  message.startsWith('✅')
+                className={`p-4 rounded-sm text-center ${
+                  message === 'success'
                     ? 'bg-green-50 text-green-700'
                     : 'bg-red-50 text-red-700'
                 }`}
               >
-                {message}
+                {message === 'success' ? '✓ Gallery created successfully!' : message.replace('error:', '')}
               </motion.div>
             )}
           </form>
 
-          <div className="mt-8 p-4 bg-mm-cream rounded-lg">
-            <h3 className="font-semibold text-sm text-[--fg] mb-2">📝 Quick Guide:</h3>
-            <ol className="text-xs text-[--muted] space-y-1 list-decimal list-inside">
+          {/* Quick Guide */}
+          <div 
+            className="mt-8 p-5 rounded-sm"
+            style={{ backgroundColor: 'var(--mm-cream)' }}
+          >
+            <h3 className="font-medium text-sm mb-3" style={{ color: 'var(--fg)' }}>Quick Guide</h3>
+            <ol className="text-xs space-y-2 list-decimal list-inside" style={{ color: 'var(--fg-muted)' }}>
               <li>Upload photos to Cloudinary first</li>
               <li>Enter client name (auto-fills other fields)</li>
               <li>Verify the auto-generated values</li>
@@ -260,4 +298,3 @@ export default function NewGalleryPage() {
     </main>
   );
 }
-

@@ -1,0 +1,26 @@
+{
+  "name": "Mesa Marie Photography",
+  "short_name": "Mesa Marie",
+  "description": "Professional photography services in Northwestern Pennsylvania. Senior portraits, couples sessions, family photography, and mini sessions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#799DAC",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["photography", "business", "lifestyle"],
+  "lang": "en-US",
+  "scope": "/",
+  "prefer_related_applications": false
+}
