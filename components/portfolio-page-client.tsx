@@ -13,10 +13,10 @@ type Category = 'all' | 'couples' | 'seniors' | 'families';
 
 // Featured "best work" images - Mesa marked these as her favorites
 const featuredImages = [
-  { src: '/portfolio/Photos for Website and Portfolio/this is one of my best, use it where everyone will see.png', alt: 'Featured family portrait - Mesa\'s best work', category: 'families' as Category },
-  { src: '/portfolio/Photos for Website and Portfolio/also one of my best!!!.png', alt: 'Featured portrait photography', category: 'seniors' as Category },
-  { src: '/portfolio/Photos for Website and Portfolio/another one of my best.jpg', alt: 'Featured photography session', category: 'couples' as Category },
-  { src: '/portfolio/Photos for Website and Portfolio/one of my better ones, use it in high visibility .jpg', alt: 'Featured high visibility portrait', category: 'seniors' as Category },
+  { src: '/portfolio/Photos for Website and Portfolio/this is one of my best, use it where everyone will see.png', alt: 'Mother and daughter playful moment in park - Mesa\'s best work', category: 'families' as Category },
+  { src: '/portfolio/Photos for Website and Portfolio/also one of my best!!!.png', alt: 'Mother and daughter joyful moment - black and white', category: 'families' as Category },
+  { src: '/portfolio/Photos for Website and Portfolio/another one of my best.jpg', alt: 'Couple gazing at each other on Lake Erie beach', category: 'couples' as Category },
+  { src: '/portfolio/Photos for Website and Portfolio/one of my better ones, use it in high visibility .jpg', alt: 'Couple walking together on the beach at golden hour', category: 'couples' as Category },
 ];
 
 // All portfolio images organized by category
@@ -55,10 +55,10 @@ const portfolioImages: { src: string; alt: string; category: Category }[] = [
   { src: '/portfolio/seniors/Copy of leilasenior-78.png', alt: 'Senior natural light portrait', category: 'seniors' },
   { src: '/portfolio/seniors/Copy of leilasenior-79.png', alt: 'Senior session finale', category: 'seniors' },
   
-  // Seniors - Corajo
-  { src: '/portfolio/seniors/Copy of corajofall-21.png', alt: 'Senior fall portrait session', category: 'seniors' },
-  { src: '/portfolio/seniors/Copy of corajofall-26.png', alt: 'Senior portrait in fall foliage', category: 'seniors' },
-  { src: '/portfolio/seniors/Copy of corajofall-26(1).png', alt: 'Senior autumn session', category: 'seniors' },
+  // Families - Baby/Infant portraits (corajofall)
+  { src: '/portfolio/seniors/Copy of corajofall-21.png', alt: 'Adorable baby with knit hat in fall leaves', category: 'families' },
+  { src: '/portfolio/seniors/Copy of corajofall-26.png', alt: 'Precious baby portrait in autumn setting', category: 'families' },
+  { src: '/portfolio/seniors/Copy of corajofall-26(1).png', alt: 'Sweet baby with blue eyes and knit hat', category: 'families' },
   
   // Families - M&D Session
   { src: '/portfolio/families/Copy of M&D-39.png', alt: 'Mother and daughter joyful moment', category: 'families' },
@@ -76,8 +76,8 @@ const portfolioImages: { src: string; alt: string; category: Category }[] = [
   { src: '/portfolio/families/Copy of M&D-70.png', alt: 'Family session highlights', category: 'families' },
   { src: '/portfolio/families/Copy of M&D-80.png', alt: 'Family portrait session', category: 'families' },
   { src: '/portfolio/families/Copy of M&D-95.png', alt: 'Family final portrait', category: 'families' },
-  { src: '/portfolio/families/Copy of fremers-42.png', alt: 'Family lifestyle session', category: 'families' },
-  { src: '/portfolio/families/for minis or family sessions(1).png', alt: 'Family mini session portrait', category: 'families' },
+  { src: '/portfolio/families/Copy of fremers-42.png', alt: 'Two brothers smiling together outdoors', category: 'families' },
+  { src: '/portfolio/families/for minis or family sessions(1).png', alt: 'Happy baby with knit hat holding autumn leaf', category: 'families' },
 ];
 
 // Combine featured and regular images, removing duplicates
