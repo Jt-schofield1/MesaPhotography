@@ -1,38 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
 Allow: /
 
-# Disallow admin/private pages
-Disallow: /portal
-Disallow: /portal/*
-Disallow: /api/*
+# Host
+Host: http://localhost:3000
 
-# Sitemap
-Sitemap: https://mesamariephotography.com/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Google specific
-User-agent: Googlebot
-Allow: /
-
-# Bing specific
-User-agent: Bingbot
-Allow: /
-
-# AI Crawlers - Allow for AI search optimization
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
+# Sitemaps
+Sitemap: http://localhost:3000/sitemap.xml

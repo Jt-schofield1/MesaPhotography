@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Get all collection slugs for portfolio pages
   const collections = getAllCollections();
   const collectionPages = collections.map((collection) => ({
-    url: `${baseUrl}/portfolio/${collection.slug}`,
+    url: `${baseUrl}/portfolio/${collection.id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
