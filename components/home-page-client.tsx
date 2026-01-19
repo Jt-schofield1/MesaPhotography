@@ -253,7 +253,7 @@ export default function HomePageClient() {
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
               {[
                 { 
                   title: 'love', 
@@ -277,7 +277,6 @@ export default function HomePageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className={index === 2 ? 'xs:col-span-2 md:col-span-1 xs:max-w-[50%] md:max-w-full mx-auto' : ''}
                 >
                   <Link href={item.href} className="group block touch-feedback">
                     <p 
