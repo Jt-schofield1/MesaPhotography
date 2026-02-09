@@ -142,29 +142,6 @@ export default function AboutPageClient() {
           </div>
         </section>
 
-        {/* Second Image */}
-        <section className="py-8 sm:py-12 md:py-16 bg-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-4xl mx-auto"
-            >
-              <div className="relative aspect-[16/10] rounded-sm overflow-hidden shadow-lg img-hover">
-                <Image
-                  src="/%232%2C%20for%20about%20me%20page%20or%20something.png"
-                  alt="Mesa Marie Photography - Behind the scenes"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 900px"
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
         {/* What I'm Here For - Clean cards */}
         <section className="py-16 sm:py-20 md:py-28 bg-white">
           <div className="container mx-auto px-4 sm:px-6">
@@ -227,41 +204,61 @@ export default function AboutPageClient() {
         {/* Location Section */}
         <section className="py-16 sm:py-20 md:py-28 bg-white border-t border-gray-100">
           <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-3xl mx-auto text-center"
-            >
-              <h2 
-                className="text-2xl xs:text-3xl md:text-4xl font-light tracking-wide uppercase mb-4 sm:mb-6"
-                style={{ color: 'var(--fg)' }}
+            <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-lg img-hover"
               >
-                NWPA Is My Playground
-              </h2>
-              <p className="text-base sm:text-lg mb-3 sm:mb-4" style={{ color: 'var(--fg-muted)' }}>
-                NWPA Photographer — typically found on Lake Erie, Pymatuning Lake, and everywhere in between.
-              </p>
-              <p className="text-sm sm:text-base" style={{ color: 'var(--fg-muted)' }}>
-                Whether you're dreaming of a beach session, a forest adventure, or something completely unique, 
-                I know all the best spots. Let's find the perfect backdrop for your story.
-              </p>
+                <Image
+                  src="/new headshot! plz use this on homepage or something.png"
+                  alt="Mesa Marie - Northwestern Pennsylvania Photographer"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </motion.div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12">
-                {[
-                  { name: 'Lake Erie', desc: 'Beaches, sunsets, & water' },
-                  { name: 'Pymatuning', desc: 'Lakes, forests, & nature' },
-                  { name: 'Hidden Gems', desc: 'Off-the-beaten-path spots' },
-                  { name: 'Anywhere!', desc: 'Your special place' },
-                ].map((loc) => (
-                  <div key={loc.name} className="p-3 sm:p-4 border border-gray-100 rounded-sm">
-                    <h4 className="font-medium text-xs sm:text-sm" style={{ color: 'var(--fg)' }}>{loc.name}</h4>
-                    <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>{loc.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="text-center"
+              >
+                <h2 
+                  className="text-2xl xs:text-3xl md:text-4xl font-light tracking-wide uppercase mb-4 sm:mb-6"
+                  style={{ color: 'var(--fg)' }}
+                >
+                  NWPA Is My Playground
+                </h2>
+                <p className="text-base sm:text-lg mb-3 sm:mb-4" style={{ color: 'var(--fg-muted)' }}>
+                  NWPA Photographer — typically found on Lake Erie, Pymatuning Lake, and everywhere in between.
+                </p>
+                <p className="text-sm sm:text-base" style={{ color: 'var(--fg-muted)' }}>
+                  Whether you're dreaming of a beach session, a forest adventure, or something completely unique, 
+                  I know all the best spots. Let's find the perfect backdrop for your story.
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12">
+                  {[
+                    { name: 'Lake Erie', desc: 'Beaches, sunsets, & water' },
+                    { name: 'Pymatuning', desc: 'Lakes, forests, & nature' },
+                    { name: 'Hidden Gems', desc: 'Off-the-beaten-path spots' },
+                    { name: 'Anywhere!', desc: 'Your special place' },
+                  ].map((loc) => (
+                    <div key={loc.name} className="p-3 sm:p-4 border border-gray-100 rounded-sm">
+                      <h4 className="font-medium text-xs sm:text-sm" style={{ color: 'var(--fg)' }}>{loc.name}</h4>
+                      <p className="text-xs mt-1" style={{ color: 'var(--fg-muted)' }}>{loc.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

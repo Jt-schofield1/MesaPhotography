@@ -261,13 +261,16 @@ export default function HomePageClient() {
                   I believe I was created to create. There's something about capturing a real laugh, 
                   a quiet moment, or the way light hits someone's face that makes me feel completely alive.
                 </p>
-                <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: 'var(--fg-muted)' }}>
+                <p className="text-lg sm:text-xl mb-6 sm:mb-8" style={{ color: 'var(--fg-muted)' }}>
                   My photography style is simple, natural, and full of heart. I love the messy, 
-                  in-between moments that feel real.
+                  in-between moments that feel real...
                 </p>
-                <Button href="/about" variant="ghost">
+                <Link href="/about" className="inline-flex items-center gap-2 text-base sm:text-lg tracking-wide group" style={{ color: 'var(--fg)' }}>
                   More About Me
-                </Button>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform group-hover:translate-x-1">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </motion.div>
             </div>
           </div>
@@ -343,7 +346,7 @@ export default function HomePageClient() {
                 },
                 { 
                   title: 'family', 
-                  image: '/portfolio/families/Copy of M&D-39.png',
+                  image: '/portfolio/Photos for Website and Portfolio/madianddallas.png',
                   href: '/portfolio/families'
                 },
               ].map((item, index) => (

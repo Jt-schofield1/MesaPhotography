@@ -34,23 +34,23 @@ export default function PricingPageClient() {
     { 
       id: 'seniors', 
       title: 'Seniors | Grads',
-      image: '/portfolio/seniors/ElisaGrad-046.jpg',
+      image: '/portfolio/seniors/Copy of leilasenior-43.png',
       data: pricingData.seniors 
     },
   ];
 
   const secondRow = [
     { 
-      id: 'families', 
-      title: 'Families',
-      image: '/portfolio/families/Copy of M&D-39.png',
-      data: pricingData.families 
-    },
-    { 
       id: 'minis', 
       title: 'Mini Sessions',
-      image: '/portfolio/minis/Copy of M&D-62.png',
+      image: '/portfolio/Photos for Website and Portfolio/corajo.png',
       data: pricingData.minis 
+    },
+    { 
+      id: 'families', 
+      title: 'Families',
+      image: '/portfolio/families/Copy of savoiafamiy-24.png',
+      data: pricingData.families 
     },
   ];
 
@@ -139,6 +139,12 @@ export default function PricingPageClient() {
                         )}
                       </div>
                     ))}
+                    {/* Inquire for pricing */}
+                    <div className="text-center pt-2">
+                      <Button href="/contact" variant="ghost" className="text-sm">
+                        Inquire for Pricing
+                      </Button>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -171,7 +177,7 @@ export default function PricingPageClient() {
                   </div>
 
                   {/* Content */}
-                  <div className={sectionIndex % 2 === 1 ? 'md:order-1' : ''}>
+                  <div className={`text-center ${sectionIndex % 2 === 1 ? 'md:order-1' : ''}`}>
                     <h2 
                       className="text-xl xs:text-2xl md:text-3xl font-light tracking-wide uppercase mb-4 sm:mb-6"
                       style={{ color: 'var(--fg)' }}
@@ -181,7 +187,7 @@ export default function PricingPageClient() {
 
                     <div className="space-y-4 sm:space-y-6">
                       {section.data.map((item: PricingItem, index: number) => (
-                        <div key={index} className="border-l-2 pl-3 sm:pl-4" style={{ borderColor: 'var(--accent)' }}>
+                        <div key={index}>
                           <h3 className="font-medium mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--fg)' }}>
                             {item.name}
                           </h3>

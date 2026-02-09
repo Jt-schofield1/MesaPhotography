@@ -13,9 +13,9 @@ type Category = 'all' | 'couples' | 'seniors' | 'families';
 
 // Featured "best work" images - Mesa marked these as her favorites
 const featuredImages = [
-  { src: '/portfolio/Photos for Website and Portfolio/this is one of my best, use it where everyone will see.png', alt: 'Mother and daughter playful moment in park - Mesa\'s best work', category: 'families' as Category },
+  { src: '/portfolio/families/Copy of savoiafamiy-20.png', alt: 'Savoia family father and daughter tender moment', category: 'families' as Category },
   { src: '/portfolio/Photos for Website and Portfolio/also one of my best!!!.png', alt: 'Mother and daughter joyful moment - black and white', category: 'families' as Category },
-  { src: '/portfolio/Photos for Website and Portfolio/another one of my best.jpg', alt: 'Couple gazing at each other on Lake Erie beach', category: 'couples' as Category },
+  { src: '/portfolio/seniors/ElisaGrad-117 (1).jpg', alt: 'Senior graduation outdoor portrait session', category: 'seniors' as Category },
   { src: '/portfolio/Photos for Website and Portfolio/one of my better ones, use it in high visibility .jpg', alt: 'Couple walking together on the beach at golden hour', category: 'couples' as Category },
 ];
 
@@ -78,6 +78,31 @@ const portfolioImages: { src: string; alt: string; category: Category }[] = [
   { src: '/portfolio/families/Copy of M&D-95.png', alt: 'Family final portrait', category: 'families' },
   { src: '/portfolio/families/Copy of fremers-42.png', alt: 'Two brothers smiling together outdoors', category: 'families' },
   { src: '/portfolio/families/for minis or family sessions(1).png', alt: 'Happy baby with knit hat holding autumn leaf', category: 'families' },
+  
+  // Seniors - Leila (new)
+  { src: '/portfolio/seniors/Copy of leilasenior-37.png', alt: 'Senior portrait in warm autumn tones', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of leilasenior-51.png', alt: 'Senior portrait with natural backdrop', category: 'seniors' },
+  
+  // Families - M&D (new)
+  { src: '/portfolio/families/Copy of M&D-25.png', alt: 'Family moment captured in golden light', category: 'families' },
+  { src: '/portfolio/families/Copy of M&D-81.png', alt: 'Family candid outdoor portrait', category: 'families' },
+  { src: '/portfolio/families/Copy of M&D-84.png', alt: 'Family joyful moment together', category: 'families' },
+  
+  // Families - Savoia Family (new)
+  { src: '/portfolio/families/Copy of savoiafamiy-07.png', alt: 'Savoia family portrait session', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-12.png', alt: 'Savoia family candid moment', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-19.png', alt: 'Savoia family outdoor photography', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-20.png', alt: 'Savoia family father and daughter', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-21.png', alt: 'Savoia family together', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-24.png', alt: 'Savoia family autumn session', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-28.png', alt: 'Savoia family love captured', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-31.png', alt: 'Savoia family natural light portrait', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-33.png', alt: 'Savoia family genuine smiles', category: 'families' },
+  { src: '/portfolio/families/Copy of savoiafamiy-39.png', alt: 'Savoia family session highlight', category: 'families' },
+  
+  // Families - Additional (new)
+  { src: '/portfolio/Photos for Website and Portfolio/corajo.png', alt: 'Adorable baby portrait in autumn leaves', category: 'families' },
+  { src: '/portfolio/Photos for Website and Portfolio/madianddallas.png', alt: 'Madi and Dallas family portrait', category: 'families' },
 ];
 
 // Combine featured and regular images, removing duplicates
