@@ -191,7 +191,7 @@ export default function AboutPageClient() {
                     >
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm" style={{ color: 'var(--fg-muted)' }}>
+                    <p className="text-sm sm:text-base" style={{ color: 'var(--fg-muted)' }}>
                       {item.desc}
                     </p>
                   </motion.div>
@@ -214,7 +214,7 @@ export default function AboutPageClient() {
                 className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-lg img-hover"
               >
                 <Image
-                  src="/new headshot! plz use this on homepage or something.png"
+                  src="/mesaportrait-34.png"
                   alt="Mesa Marie - Northwestern Pennsylvania Photographer"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -244,7 +244,7 @@ export default function AboutPageClient() {
                   I know all the best spots. Let's find the perfect backdrop for your story.
                 </p>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 sm:mt-12">
                   {[
                     { name: 'Lake Erie', desc: 'Beaches, sunsets, & water' },
                     { name: 'Pymatuning', desc: 'Lakes, forests, & nature' },

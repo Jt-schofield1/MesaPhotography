@@ -54,11 +54,14 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
     border border-gray-200 
     rounded-sm 
     bg-white
+    text-base
     text-[var(--fg)]
     placeholder:text-gray-400
     focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]
     transition-all duration-300
     disabled:opacity-50 disabled:cursor-not-allowed
+    min-h-[48px]
+    appearance-none
   `.trim();
 
   return (
@@ -175,7 +178,7 @@ export default function ContactForm({ prefillSession }: ContactFormProps) {
           className={`${inputClasses} resize-y`}
           placeholder="Tell me about your shoot… What's your vision? Any special requests?"
           disabled={status === 'submitting'}
-          style={{ minHeight: '140px' }}
+          style={{ minHeight: '120px' }}
         />
       </label>
 

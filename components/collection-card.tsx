@@ -48,14 +48,14 @@ export default function CollectionCard({
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
-        <div className="p-6 bg-white">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-2xl font-semibold text-[--fg] group-hover:text-mm-slate transition-colors">
+        <div className="p-4 sm:p-6 bg-white">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[--fg] group-hover:text-mm-slate transition-colors">
               {title}
             </h3>
             <Badge>{imageCount} photos</Badge>
           </div>
-          <p className="text-[--muted]">{description}</p>
+          <p className="text-sm sm:text-base text-[--muted]">{description}</p>
         </div>
       </Link>
     </motion.div>

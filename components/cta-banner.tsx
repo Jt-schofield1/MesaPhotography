@@ -26,14 +26,14 @@ export default function CTABanner({
 
   return (
     <section className={`${bgColors[background]} py-16 md:py-24`}>
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-[--fg]">{title}</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 text-[--fg]">{title}</h2>
 
           {description && (
             <p className="text-lg md:text-xl text-[--muted] max-w-2xl mx-auto mb-8">

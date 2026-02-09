@@ -11,7 +11,7 @@ export default function Section({ children, className, id, size = 'default' }: S
   return (
     <section
       id={id}
-      className={cn(size === 'sm' ? 'section-sm' : 'section', 'container mx-auto px-4', className)}
+      className={cn(size === 'sm' ? 'section-sm' : 'section', 'container mx-auto', className)}
     >
       {children}
     </section>

@@ -29,6 +29,18 @@ export default function Header() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/portfolio', label: 'Portfolio' },
@@ -62,7 +74,7 @@ export default function Header() {
               mesa marie
             </span>
             <span 
-              className="text-[10px] md:text-xs tracking-[0.3em] uppercase -mt-1"
+              className="text-[11px] md:text-xs tracking-[0.3em] uppercase -mt-1"
               style={{ color: 'var(--fg)' }}
             >
               photography
@@ -85,7 +97,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 -mr-2 transition-colors duration-300"
+            className="md:hidden p-3 -mr-3 min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
