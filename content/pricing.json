@@ -55,7 +55,7 @@
   ],
   "minis": [
     {
-      "name": "Mini Family Session",
+      "name": "Mini Couple/Family Session",
       "price": 75,
       "duration": "30 minutes",
       "locations": 1,
@@ -64,7 +64,7 @@
     },
     {
       "name": "Mini Session",
-      "price": 45,
+      "price": 55,
       "duration": "15-20 minutes",
       "locations": 1,
       "images": "10 edited photos",

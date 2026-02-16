@@ -100,9 +100,30 @@ const portfolioImages: { src: string; alt: string; category: Category }[] = [
   { src: '/portfolio/families/Copy of savoiafamiy-33.png', alt: 'Savoia family genuine smiles', category: 'families' },
   { src: '/portfolio/families/Copy of savoiafamiy-39.png', alt: 'Savoia family session highlight', category: 'families' },
   
-  // Families - Additional (new)
+  // Families - Additional
   { src: '/portfolio/Photos for Website and Portfolio/corajo.png', alt: 'Adorable baby portrait in autumn leaves', category: 'families' },
   { src: '/portfolio/Photos for Website and Portfolio/madianddallas.png', alt: 'Madi and Dallas family portrait', category: 'families' },
+  
+  // Seniors - Ada Senior Session (new)
+  { src: '/portfolio/seniors/Copy of adasenior-08.png', alt: 'Ada senior portrait in golden light', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of adasenior-20.png', alt: 'Ada senior outdoor session', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of adasenior-29.png', alt: 'Ada senior natural light portrait', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of adasenior-59.png', alt: 'Ada senior lifestyle photography', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of adasenior-60.png', alt: 'Ada senior candid moment', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of adasenior-64.png', alt: 'Ada senior portrait session', category: 'seniors' },
+  { src: '/portfolio/seniors/Copy of adasenior-66.png', alt: 'Ada senior celebration portrait', category: 'seniors' },
+  
+  // Families - Savoia (additional)
+  { src: '/portfolio/families/Copy of savoiafamiy-47.png', alt: 'Savoia family portrait moment', category: 'families' },
+  
+  // Families - Fremers (new)
+  { src: '/portfolio/families/Copy of fremers-22.png', alt: 'Fremers family outdoor portrait', category: 'families' },
+  { src: '/portfolio/families/Copy of fremers-33.png', alt: 'Fremers family candid moment', category: 'families' },
+  { src: '/portfolio/families/Copy of fremers-43.png', alt: 'Fremers family together', category: 'families' },
+  
+  // Families - Miller Family (new)
+  { src: '/portfolio/families/Copy of millerfamily-32.png', alt: 'Miller family portrait session', category: 'families' },
+  { src: '/portfolio/families/Copy of millerfamily-54.png', alt: 'Miller family outdoor photography', category: 'families' },
 ];
 
 // Combine featured and regular images, removing duplicates
